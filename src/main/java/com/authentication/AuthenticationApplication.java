@@ -26,5 +26,4 @@ public class AuthenticationApplication extends SpringBootServletInitializer impl
 		// TODO Auto-generated method stub
 		
 	}
-
 }
