@@ -46,7 +46,7 @@ public class loginService {
 		boolean flag = false;
 		try {
 			UserMstEntity umeEntity = checkLogin(user.getUserEmail(), Common.encryptStringAdvance(user.getPassword()));
-			if(umeEntity != null) {
+			if(umeEntity != null && user.getStatus()==1) {
 				flag = true;
 				user.setUserEmail(umeEntity.getUserEmail());
 				user.setUserMobileNo(umeEntity.getUserMobileNo());
@@ -54,7 +54,12 @@ public class loginService {
 				user.setSrno(umeEntity.getSrno());
 				user.setUserBio(umeEntity.getUserBio());
 				user.setPhoto(umeEntity.getPhoto());
-			}else {
+				this.message = "The user is logged in successfully.";
+			}else if(user.getStatus()==0) {
+				flag = false;
+				this.message = "The user is temporarily blocked.";
+			}
+			else {
 				flag = false;
 				this.message = "Invalid userid or password";
 			}
@@ -88,6 +93,7 @@ public class loginService {
 				user.setSrno(rs.getInt("sr_no"));
 				user.setUserBio(rs.getString("bio"));
 				user.setPhoto(rs.getBytes("photo"));
+				user.setStatus(rs.getInt("status"));
 			}
 		} catch (Exception e) {
 			System.out.println("Exception  checkLogin " + e);

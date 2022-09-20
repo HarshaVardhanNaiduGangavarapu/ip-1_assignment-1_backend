@@ -41,12 +41,12 @@ public class LoginRestController {
 
 				res.put("userDetail", new JSONObject(user));
 				
-				res.put("message", "Login succesfully.");
+				res.put("message", service.getMessage());
 				res.put("status", "success");
 
 			} else {
 				System.out.println(" false login");
-				res.put("message", "Invalid userid or password");
+				res.put("message", service.getMessage());
 				res.put("status", "failure");
 			}
 		} catch (Exception e) {

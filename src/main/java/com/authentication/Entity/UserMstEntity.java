@@ -35,6 +35,9 @@ public class UserMstEntity {
 	@Column(name = "mobile_no", columnDefinition = "varchar(15)")
 	private String userMobileNo;
 	
+	@Column(name = "status")
+	private int status;
+	
 	@Lob
 	@Column(name = "photo", length = 100000)
 	private byte[] photo;
@@ -103,8 +106,12 @@ public class UserMstEntity {
 		this.photo = photo;
 	}
 
-	
+	public int getStatus() {
+		return status;
+	}
 
-	
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	
 }

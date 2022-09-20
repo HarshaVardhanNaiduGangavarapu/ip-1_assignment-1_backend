@@ -22,6 +22,11 @@ public interface UserRepository extends CrudRepository<UserMstEntity, Integer>{
 	
 	@Transactional
 	@Modifying
+	@Query(value = "update user_mst set status=0 where email = :email", nativeQuery = true)
+	int blockUser(@Param("email") String userEmail);
+	
+	@Transactional
+	@Modifying
 	@Query(value = "update user_mst u set u.name= :name ,u.email = :email ,u.password = :password,"
 			+ "u.bio = :bio,u.mobile_no = :mobileNo,u.photo = :photo where u.email = :email", nativeQuery = true)
 	int updateUserRestByEmail(@Param("name") String userName, @Param("email") String userEmail, @Param("password") String password,

@@ -7,6 +7,13 @@ public class User {
 
 	private int srno;
 	private String userName;
+	private int status;
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 	private String userEmail;
 	private String password;
 	private String confirmPassword;
