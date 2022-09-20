@@ -76,9 +76,8 @@ public class RegistrationService {
 		return flag;
 	}
 	
-	public boolean InsertRegistraionData(User user, UserRepository userrepo) {
-		System.out.println(user.getUserName());
-		System.out.println(user.getLogoObj().length);
+	public boolean InsertRegistraionData(User user, byte[] imageFile ,UserRepository userrepo) {
+
 		boolean flag = false;
 		try {
 			UserMstEntity ume = new UserMstEntity();
@@ -88,7 +87,7 @@ public class RegistrationService {
 			ume.setUserMobileNo(user.getUserMobileNo());
 			ume.setCreatedTime(Common.getCurrentDate("yyyy-MM-dd HH:mm:ss"));
 			ume.setUserBio(user.getUserBio());
-			ume.setLogo(user.getLogoObj());
+			ume.setLogo(imageFile);
 			if(userrepo.save(ume) != null) {
 				flag = true;	
 			}

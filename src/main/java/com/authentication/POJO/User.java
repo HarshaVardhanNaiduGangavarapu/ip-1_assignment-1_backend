@@ -55,14 +55,6 @@ public class User {
 	public void setUserMobileNo(String userMobileNo) {
 		this.userMobileNo = userMobileNo;
 	}
-	private byte[] logoObj = null;
-	
-	public byte[] getLogoObj() {
-		return logoObj;
-	}
-	public void setLogoObj(byte[] logoObj) {
-		this.logoObj = logoObj;
-	}
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
