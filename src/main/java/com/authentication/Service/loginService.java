@@ -46,7 +46,7 @@ public class loginService {
 		boolean flag = false;
 		try {
 			UserMstEntity umeEntity = checkLogin(user.getUserEmail(), Common.encryptStringAdvance(user.getPassword()));
-			if(umeEntity != null && user.getStatus()==1) {
+			if(umeEntity != null && umeEntity.getStatus()==1) {
 				flag = true;
 				user.setUserEmail(umeEntity.getUserEmail());
 				user.setUserMobileNo(umeEntity.getUserMobileNo());
@@ -55,7 +55,7 @@ public class loginService {
 				user.setUserBio(umeEntity.getUserBio());
 				user.setPhoto(umeEntity.getPhoto());
 				this.message = "The user is logged in successfully.";
-			}else if(user.getStatus()==0) {
+			}else if(umeEntity.getStatus()==0) {
 				flag = false;
 				this.message = "The user is temporarily blocked.";
 			}

@@ -36,7 +36,7 @@ public class UserMstEntity {
 	private String userMobileNo;
 	
 	@Column(name = "status")
-	private int status;
+	private int status = 1;
 	
 	@Lob
 	@Column(name = "photo", length = 100000)
