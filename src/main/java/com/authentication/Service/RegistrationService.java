@@ -87,7 +87,7 @@ public class RegistrationService {
 			ume.setUserMobileNo(user.getUserMobileNo());
 			ume.setCreatedTime(Common.getCurrentDate("yyyy-MM-dd HH:mm:ss"));
 			ume.setUserBio(user.getUserBio());
-			ume.setLogo(imageFile);
+			ume.setPhoto(imageFile);
 			if(userrepo.save(ume) != null) {
 				flag = true;	
 			}

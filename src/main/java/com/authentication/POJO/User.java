@@ -13,6 +13,13 @@ public class User {
 	private String createdTime;
 	private String userBio;
 	private String userMobileNo;
+	private byte[] photo = null;
+	public byte[] getPhoto() {
+		return photo;
+	}
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
 	public int getSrno() {
 		return srno;
 	}

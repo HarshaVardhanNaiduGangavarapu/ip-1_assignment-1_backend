@@ -36,8 +36,8 @@ public class UserMstEntity {
 	private String userMobileNo;
 	
 	@Lob
-	@Column(name = "logo", length = 100000)
-	private byte[] logo;
+	@Column(name = "photo", length = 100000)
+	private byte[] photo;
 	
 	public int getSrno() {
 		return srno;
@@ -95,13 +95,15 @@ public class UserMstEntity {
 		this.userBio = userBio;
 	}
 
-	public byte[] getLogo() {
-		return logo;
+	public byte[] getPhoto() {
+		return photo;
 	}
 
-	public void setLogo(byte[] logo) {
-		this.logo = logo;
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
 	}
+
+	
 
 	
 	
