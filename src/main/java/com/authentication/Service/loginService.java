@@ -53,6 +53,7 @@ public class loginService {
 				user.setUserName(umeEntity.getUserName());
 				user.setSrno(umeEntity.getSrno());
 				user.setUserBio(umeEntity.getUserBio());
+				user.setPhoto(umeEntity.getPhoto());
 			}else {
 				flag = false;
 				this.message = "Invalid userid or password";
@@ -86,6 +87,7 @@ public class loginService {
 				user.setUserName(rs.getString("name"));
 				user.setSrno(rs.getInt("sr_no"));
 				user.setUserBio(rs.getString("bio"));
+				user.setPhoto(rs.getBytes("photo"));
 			}
 		} catch (Exception e) {
 			System.out.println("Exception  checkLogin " + e);
