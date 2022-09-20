@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.authentication.Common.Common;
 import com.authentication.POJO.User;
 import com.authentication.Repository.UserRepository;
 
@@ -33,7 +34,7 @@ public class ManageUserRestController {
 			System.out.println("Bio: " + user.getUserBio());
 			System.out.println("Mobile:"  + user.getUserMobileNo());
 			System.out.println("image:"  + imageFile.getBytes().length);
-			int cnt = userRepo.updateUserRestByEmail(user.getUserName(), user.getUserEmail(), user.getUserBio(), user.getUserMobileNo(), imageFile.getBytes());
+			int cnt = userRepo.updateUserRestByEmail(user.getUserName(),user.getUserEmail(), Common.encryptStringAdvance(user.getPassword()),user.getUserBio(), user.getUserMobileNo(), imageFile.getBytes());
 			if (cnt > 0) {
 				json.put("status", "success");
 				json.put("message", "User updated successfully.");
