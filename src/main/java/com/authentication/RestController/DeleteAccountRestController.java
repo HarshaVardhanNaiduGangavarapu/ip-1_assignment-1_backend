@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +21,7 @@ public class DeleteAccountRestController {
 	@Autowired
 	UserRepository userRepo;
 
-	@RequestMapping(value = "/rest/deleteAccountRestController", method = RequestMethod.POST, consumes = "multipart/form-data")
+	@RequestMapping(value = "/rest/deleteAccountRestController", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes="*/*")
 	public String UpdateUserInfo(String email, HttpServletRequest req) {
 		JSONObject json = new JSONObject();
 		json.put("status", "failure");

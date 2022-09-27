@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,7 @@ public class RegistrationRestController {
 	@Autowired
 	UserRepository userrepo;
 	
-	@RequestMapping(value = "/rest/registration", method = RequestMethod.POST, consumes = "multipart/form-data")
+	@RequestMapping(value = "/rest/registration", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,consumes="*/*")
 	public String RegistraionRest(User user, @RequestParam(value = "image", required = false) MultipartFile imageFile,HttpServletRequest req) {
 		JSONObject res = new JSONObject();
 		res.put("message", "error");

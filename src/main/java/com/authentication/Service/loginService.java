@@ -45,6 +45,8 @@ public class loginService {
 	public boolean checkLogin(User user, UserRepository userrepo) {
 		boolean flag = false;
 		try {
+			System.out.println(user.getUserEmail());
+			System.out.println(user.getPassword());
 			UserMstEntity umeEntity = checkLogin(user.getUserEmail(), Common.encryptStringAdvance(user.getPassword()));
 			if(umeEntity != null && umeEntity.getStatus()==1) {
 				flag = true;

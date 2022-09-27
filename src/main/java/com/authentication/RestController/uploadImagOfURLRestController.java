@@ -8,6 +8,7 @@ import java.net.URL;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +25,7 @@ public class uploadImagOfURLRestController {
 	@Autowired
 	UserRepository userRepo;
 
-	@RequestMapping(value = "/rest/uploadImageOfURL", method = RequestMethod.POST, consumes = "multipart/form-data")
+	@RequestMapping(value = "/rest/uploadImageOfURL", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE,consumes="*/*")
 	public String UpdateUserInfo(String email ,String imgURL, HttpServletRequest req) {
 		JSONObject json = new JSONObject();
 		json.put("status", "failure");
